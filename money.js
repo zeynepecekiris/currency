@@ -3,6 +3,7 @@ const currencySecond = document.getElementById('currencySecond');
 const count  = document.getElementById('count');
 const equal  = document.getElementById('equal');
 const exchangeRate  = document.getElementById('exchangeRate');
+const swapButton = document.getElementById('swapButton');
 
 
 
@@ -26,6 +27,15 @@ function updateRate() {
     });
 
 }
+swapButton.addEventListener('click', () => {
+    // İlk ve ikinci para birimi seçimini al
+    const temp = currencyFirst.value;
+    currencyFirst.value = currencySecond.value;
+    currencySecond.value = temp;
+
+    // Değerleri güncelle
+    updateRate();
+});
 
 
 currencyFirst.addEventListener('change', updateRate);
